@@ -374,7 +374,7 @@
         /* Modern Hero Section */
         .modern-hero {
   background: #f4f8fb;
-  padding: 100px 40px 0px 40px;
+  padding: 95px 15px 58px 15px;
 }
 .modern-hero-container {
   display: flex;
@@ -501,6 +501,7 @@
     flex-direction: column;
     gap: 40px;
     align-items: flex-start;
+    padding: 93px 15px 24px 15px;
   }
   .modern-hero-img {
     width: 100%;
