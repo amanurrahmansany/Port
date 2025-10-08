@@ -222,6 +222,7 @@
         }
         /* Skills */
         .skills-section { background: var(--light-color);}
+        
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
