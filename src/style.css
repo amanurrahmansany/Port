@@ -67,7 +67,7 @@
             color: #fff;
         }
         header {
-            background: #fff;
+            background: #C0C0C0;
             box-shadow: var(--shadow);
             position: fixed;
             width: 100%;
@@ -78,23 +78,78 @@
             display: flex;
             justify-content: space-between;
             align-items: center;
-            padding: 22px 0;
+            align-items: center;
+            padding: 10px 0;
+            color: #1a526e;
         }
         .logo {
-            font-size: 1.7rem;
+            font-size: 2rem;
             font-weight: 700;
-            color: var(--primary-color);
-            letter-spacing: 1px;
+            color: var(--secondary-color);
+            letter-spacing: 2px;
+            display: inline-block;
         }
-        .logo span { color: var(--secondary-color);}
-        .nav-links { display: flex; }
-        .nav-links li { margin-left: 32px; }
+       .logo span {
+          display: inline-block;
+          color: var(--primary-color);
+          opacity: 10;
+          transform: translateY(15px);
+          animation: fadeWave 2s ease-in-out infinite;
+        }
+        .logo span:nth-child(1) { animation-delay: 0s; }
+        .logo span:nth-child(2) { animation-delay: 0.2s; }
+        .logo span:nth-child(3) { animation-delay: 0.4s; } /* Space */
+        .logo span:nth-child(4) { animation-delay: 0.6s; }
+        .logo span:nth-child(5) { animation-delay: 0.8s; }
+        .logo span:nth-child(6) { animation-delay: 1.0s; }
+        .logo span:nth-child(7) { animation-delay: 1.2s; }
+        .nav-links {
+          display: flex;
+          gap: 1.5rem;               /* space between links */
+          list-style: none;           /* remove bullets if <ul> */
+          padding: 0;
+          margin: 0;
+          justify-content: center;    /* center horizontally */
+          align-items: center;        /* center vertically */
+          font-family: 'Poppins', sans-serif;
+          font-weight: 500;
+          background-color: rgba(255, 255, 255, 0.05); /* subtle bg */
+          border-radius: 12px;
+          padding: 0.5rem 1rem;
+          transition: all 0.3s ease;
+        }
+        
+        /* Individual links */
         .nav-links a {
-            color: var(--text-color);
-            font-weight: 500;
-            font-size: 1.05rem;
+          text-decoration: none;
+          color: #000000;
+          position: relative;
+          padding: 0.5rem 0.8rem;
+          border-radius: 8px;
+          transition: all 0.3s ease;
         }
-        .nav-links a:hover { color: var(--secondary-color);}
+        
+        /* Hover effect */
+        .nav-links a::after {
+          content: '';
+          position: absolute;
+          width: 0%;
+          height: 2px;
+          bottom: 0;
+          left: 0;
+          background-color: #1a526e; /* highlight color */
+          transition: 0.3s ease;
+        }
+        
+        .nav-links a:hover::after {
+          width: 100%;
+        }
+        
+        .nav-links a:hover {
+          transform: translateY(-4px);
+          color: #1a526e;
+          box-shadow: 0 8px 15px rgba(255, 204, 0, 0.4);
+        }
         .hamburger { display: none; cursor: pointer; font-size: 1.7rem;}
         /* Hero */
         .hero {
@@ -137,10 +192,16 @@
             width: 300px;
             height: 300px;
             border-radius: 50%;
-            object-fit: cover;
+            /* object-fit: cover; */
             border: 6px solid var(--secondary-color);
             box-shadow: var(--shadow);
             margin-bottom: 10px;
+            transition: transform 0.3s ease, box-shadow 0.3s ease; /* Smooth hover */
+        }
+        /* Hover effect */
+        .profile-img:hover {
+             transform: scale(1.5);  /* 10% bigger */
+             box-shadow: 0 15px 30px rgba(0, 0, 0, 0.3); /* stronger shadow */
         }
         .profile-img-placeholder {
             width: 300px; height: 300px;
@@ -374,7 +435,7 @@
         /* Modern Hero Section */
         .modern-hero {
   background: #f4f8fb;
-  padding: 95px 15px 58px 15px;
+  padding: 85px 15px 58px 15px;
 }
 .modern-hero-container {
   display: flex;
@@ -543,4 +604,15 @@
     background: #2176ae;
     transform: translateY(-4px) scale(1.08);
     opacity: 1;
+}
+
+@keyframes fadeWave {
+  0% {
+    opacity: 0;
+    transform: translateY(15px);
+  }
+  100% {
+    opacity: 2;
+    transform: translateY(0);
+  }
 }
