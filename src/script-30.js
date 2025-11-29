@@ -1,62 +1,36 @@
 
-// Wrap behavior to run after DOM is ready and add defensive checks
-document.addEventListener('DOMContentLoaded', () => {
-        // Mobile Navigation Toggle
+// Mobile Navigation Toggle
         const hamburger = document.querySelector('.hamburger');
         const navLinks = document.querySelector('.nav-links');
-        if (hamburger && navLinks) {
-            hamburger.addEventListener('click', () => {
-                navLinks.classList.toggle('active');
-            });
-        }
-
+        hamburger.addEventListener('click', () => {
+            navLinks.classList.toggle('active');
+        });
         // Close mobile menu when clicking on a link
-        const navLinkEls = document.querySelectorAll('.nav-links a');
-        if (navLinkEls && navLinkEls.length && navLinks) {
-            navLinkEls.forEach(link => {
-                link.addEventListener('click', () => {
-                    navLinks.classList.remove('active');
-                });
+        document.querySelectorAll('.nav-links a').forEach(link => {
+            link.addEventListener('click', () => {
+                navLinks.classList.remove('active');
             });
-        }
-
+        });
         // Animate skill bars when they come into view
         const skillBars = document.querySelectorAll('.skill-progress');
-        if (skillBars && skillBars.length) {
-            const animateSkillBars = () => {
-                skillBars.forEach(bar => {
-                    const barPosition = bar.getBoundingClientRect().top;
-                    const screenPosition = window.innerHeight / 1.3;
-                    if (barPosition < screenPosition) {
-                        const width = bar.getAttribute('data-width');
-                        bar.style.width = width + '%';
-                    }
-                });
-            };
-            window.addEventListener('scroll', animateSkillBars);
-            // also trigger once in case some bars are already visible
-            animateSkillBars();
-        }
-
-        // Form submission handler (use toast instead of alert)
-        const contactForm = document.getElementById('contactForm');
-        if (contactForm) {
-            contactForm.addEventListener('submit', (e) => {
-                e.preventDefault();
-                // Use styled toast if available
-                try {
-                    if (typeof showToast === 'function') {
-                        showToast('Message sent!', 'Thank you — I will get back to you soon.');
-                    } else {
-                        alert('Thank you for your message! I will get back to you soon.');
-                    }
-                } catch (err) {
-                    // fallback
-                    alert('Thank you for your message! I will get back to you soon.');
+        const animateSkillBars = () => {
+            skillBars.forEach(bar => {
+                const barPosition = bar.getBoundingClientRect().top;
+                const screenPosition = window.innerHeight / 1.3;
+                if (barPosition < screenPosition) {
+                    const width = bar.getAttribute('data-width');
+                    bar.style.width = width + '%';
                 }
-                contactForm.reset();
             });
-        }
+        };
+        window.addEventListener('scroll', animateSkillBars);
+        // Form submission handler
+        const contactForm = document.getElementById('contactForm');
+        contactForm.addEventListener('submit', (e) => {
+            e.preventDefault();
+            alert('Thank you for your message! I will get back to you soon.');
+            contactForm.reset();
+        });
         // Resume download toast - demo style (top-right, icon, close, progress bar)
         function ensureToastContainer() {
             let container = document.getElementById('toastContainer');
@@ -154,4 +128,3 @@ document.addEventListener('DOMContentLoaded', () => {
                 }
             });
         });
-});
