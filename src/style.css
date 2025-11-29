@@ -566,11 +566,7 @@
         }
         @media (max-width: 600px) {
           .modern-hero-left h1 { font-size: 1.9rem; }
-/*************  ✨ Windsurf Command 🌟  *************/
           .modern-hero-img { width: 100%; height: auto; }
-          .modern-hero-img { max-width: 100%; height: auto; }
-        }
-/*******  fda1407f-7e5a-4e96-b82d-af2600418b2e  *******/
 #backToTopBtn {
     position: fixed;
     bottom: 32px;
@@ -685,3 +681,4 @@
   .toast-container { right: 10px; left: 10px; align-items: stretch; }
   .toast { min-width: unset; width: 100%; }
 }
+        }
