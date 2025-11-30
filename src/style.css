@@ -566,7 +566,7 @@
         }
         @media (max-width: 600px) {
           .modern-hero-left h1 { font-size: 1.9rem; }
-          .modern-hero-img { max-width: 100%; height: 180px; }
+          .modern-hero-img { max-width: 100%; height: auto; }
         }
 #backToTopBtn {
     position: fixed;
